@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Tus Vacaciones | Dashboard</title>
+	<meta name="author" content="francomanzanares"/>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+	<!-- Custom CSS -->
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!-- /Preloader -->
+    <div class="wrapper  theme-6-active pimary-color-green">
+		<!-- Top Menu Items -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<!-- LOGO - SEARCH-->
+			<div class="mobile-only-brand pull-left">
+				<div class="nav-header pull-left">
+					<div class="logo-wrap">
+						<a href="/">
+							<img class="" src="../img/logo.png" alt="logo"/>
+							<span class="brand-text">Tus Vacaciones</span>
+						</a>
+					</div>
+				</div>	
+				<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+				<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="fa fa-ellipsis-h"></i></a>
+			</div>
+			<!-- FIN LOGO - SEARCH -->
+			<!-- PERFIL -->
+			<div id="mobile_only_nav" class="mobile-only-nav pull-right">
+				<ul class="nav navbar-right top-nav pull-right">
+					<!-- PERFIL -->
+					<li class="dropdown auth-drp">
+						<a href="#" class="dropdown-toggle pr-0" style="top: 7px;" data-toggle="dropdown"><i style="color: white; font-size: 30px; font-weight: 600;" class="fa fa-power-off"></i></a>
+						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+							<li>
+								<a href="login.html" id="btnCerrarSesion"><i class="fa fa-power-off"></i><span>Cerrar Sesión</span></a>
+							</li>
+						</ul>
+					</li>
+					<!-- FIN PERFIL -->
+				</ul>
+			</div>
+			<!-- FIN NOTIFICACIONES - PERFIL -->
+		</nav>
+		<!-- /Top Menu Items -->
+		
+		<!-- Left Sidebar Menu -->
+		<div class="fixed-sidebar-left">
+			<ul class="nav navbar-nav side-nav nicescroll-bar">
+				<li class="navigation-header">
+					<span>Menú</span> 
+					<i class="fa fa-ellipsis-h"></i>
+				</li>
+				<li>
+					<a class="active" href="javascript:void(0);"><div class="pull-left"><i class="fa fa-info mr-20"></i><span class="right-nav-text">Inicio</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="fa fa-building-o mr-20"></i><span class="right-nav-text">Alojamiento</span></div><div class="pull-right"><i class="fa fa-caret-down"></i></div><div class="clearfix"></div></a>
+					<ul id="dashboard_dr" class="collapse collapse-level-1">
+						<li>
+							<a href="alojamiento.html">inicio</a>
+						</li>
+						<li>
+							<a href="habitacion.html">habitación</a>
+						</li>
+						<li>
+							<a href="reserva.html">reserva</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="clasificacion.html"><div class="pull-left"><i class="fa fa-bookmark mr-20"></i><span class="right-nav-text">Clasificación</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="caracteristica.html"><div class="pull-left"><i class="fa fa-cutlery mr-20"></i><span class="right-nav-text">Característica</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="usuario.html"><div class="pull-left"><i class="fa fa-users mr-20"></i><span class="right-nav-text">Usuario</span></div><div class="clearfix"></div></a>
+				</li>
+				<li><hr class="light-grey-hr mb-10"/></li>
+			</ul>
+		</div>
+		<!-- /Left Sidebar Menu -->
+
+        <!-- Main Content -->
+		<div class="page-wrapper">
+            <div class="container-fluid pt-25">
+				<!-- Title -->
+				<div id="titulos" class="row heading-bg">
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+					  <h4 class="txt-dark">Dashboard</h4>
+					</div>
+				</div>
+				
+
+			<!-- Footer -->
+			<footer class="footer container-fluid pl-30 pr-30">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>2018 &copy; Droopy. Pampered by Hencework</p>
+					</div>
+				</div>
+			</footer>
+			<!-- /Footer -->
+		</div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Comprueba Login -->
+	<script src="./js/comprobar_login.js"></script>
+	
+     <!-- Bootstrap Core JavaScript -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- Slimscroll JavaScript -->
+	<script src="../vendors/jquery.slimscroll.js"></script>
+	<!-- INIT JS -->
+	<script src="../js/init.js"></script>
+</body>
+
+</html>

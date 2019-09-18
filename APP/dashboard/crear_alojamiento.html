@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Tus Vacaciones | Dashboard</title>
+	<meta name="author" content="francomanzanares"/>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+	<!-- jquery-steps css -->
+	<link rel="stylesheet" href="../vendors/jquery.steps/demo/css/jquery.steps.css">
+	
+	<!-- bootstrap-touchspin CSS -->
+	<link href="../vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- JASNY BOOTSTRAP CSS (MASK) -->
+	<link rel="stylesheet" href="../vendors/jasny-bootstrap/dist/css/jasny-bootstrap.min.css">
+
+	<!-- Bootstrap-Select CSS (Le da color al select) -->
+    <link href="../vendors/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+	<!-- Custom CSS -->
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../css/me/estilos.css">
+</head>
+<body>
+	<!-- Preloader -->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!-- /Preloader -->
+	<div class="wrapper  theme-6-active pimary-color-green">
+		<!-- Top Menu Items -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<!-- LOGO - SEARCH-->
+			<div class="mobile-only-brand pull-left">
+				<div class="nav-header pull-left">
+					<div class="logo-wrap">
+						<a href="/">
+							<img class="" src="../img/logo.png" alt="logo"/>
+							<span class="brand-text">Tus Vacaciones</span>
+						</a>
+					</div>
+				</div>	
+				<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+				<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="fa fa-ellipsis-h"></i></a>
+			</div>
+			<!-- FIN LOGO - SEARCH -->
+			<!-- PERFIL -->
+			<div id="mobile_only_nav" class="mobile-only-nav pull-right">
+				<ul class="nav navbar-right top-nav pull-right">
+					<!-- PERFIL -->
+					<li class="dropdown auth-drp">
+						<a href="#" class="dropdown-toggle pr-0" style="top: 7px;" data-toggle="dropdown"><i style="color: white; font-size: 30px; font-weight: 600;" class="fa fa-power-off"></i></a>
+						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+							<li>
+								<a href="login.html" id="btnCerrarSesion"><i class="fa fa-power-off"></i><span>Cerrar Sesión</span></a>
+							</li>
+						</ul>
+					</li>
+					<!-- FIN PERFIL -->
+				</ul>
+			</div>
+			<!-- FIN NOTIFICACIONES - PERFIL -->
+		</nav>
+		<!-- /Top Menu Items -->
+		<!-- Left Sidebar Menu -->
+		<div class="fixed-sidebar-left">
+			<ul class="nav navbar-nav side-nav nicescroll-bar">
+				<li class="navigation-header">
+					<span>Menú</span> 
+					<i class="fa fa-ellipsis-h"></i>
+				</li>
+				<li>
+					<a href="index.html"><div class="pull-left"><i class="fa fa-info mr-20"></i><span class="right-nav-text">Inicio</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="fa fa-building-o mr-20"></i><span class="right-nav-text">Alojamiento</span></div><div class="pull-right"><i class="fa fa-caret-down"></i></div><div class="clearfix"></div></a>
+					<ul id="dashboard_dr" class="collapse collapse-level-1">
+						<li>
+							<a class="active-page" href="javascript:void(0);">inicio</a>
+						</li>
+						<li>
+							<a href="habitacion.html">habitación</a>
+						</li>
+						<li>
+							<a href="reserva.html">reserva</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="clasificacion.html"><div class="pull-left"><i class="fa fa-bookmark mr-20"></i><span class="right-nav-text">Clasificación</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="caracteristica.html"><div class="pull-left"><i class="fa fa-cutlery mr-20"></i><span class="right-nav-text">Característica</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="usuario.html"><div class="pull-left"><i class="fa fa-users mr-20"></i><span class="right-nav-text">Usuario</span></div><div class="clearfix"></div></a>
+				</li>
+				<li><hr class="light-grey-hr mb-10"/></li>
+			</ul>
+		</div>
+		<!-- /Left Sidebar Menu -->
+
+		<!-- Main Content -->
+		<div class="page-wrapper">
+            <div class="container-fluid pt-25">
+				<!-- Title -->
+				<div id="titulos" class="row heading-bg">
+					<div class="col-xs-8">
+					  <h4 class="txt-dark">Crear Alojamiento</h4>
+					</div>
+				
+					<!-- Boton Agregar Alojamiento -->
+					<div class="col-xs-2">
+						<a href="alojamiento.html" class="btn  btn-block btn-info btn-anim" id="btnVolverInicioAlojamiento"><i class="fa fa-rotate-left"></i><span class="btn-text">volver</span></a>
+					</div>
+				</div>
+
+				<!-- Crear Alojamientos -->
+				<div id="divCrearAlojamiento" class="row">
+					<div class="col-sm-10">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Nuevo Alojamiento</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div id="stepsCrearAlojamiento">
+										<h3><span class="number">1</span><span class="head-font capitalize-font">Datos Principales</span></h3>
+										<fieldset>
+											<form class="form-horizontal" action="#">
+												<div class="row">
+													<div class="col-md-6 col-sm-12">
+														<h4 class="text-center mb-10"><small>Principal</small></h4>
+														<div class="form-group">
+															<label for="txtNombre" class="col-sm-3 control-label">Nombre</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtNombre" placeholder="Ingrese nombre" required>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label for="txtDescripcion" class="col-sm-3 control-label">Descripción</label>
+															<div class="col-sm-9">
+																<textarea class="form-control" id="txtDescripcion" rows="5" required></textarea>
+															</div>
+														</div>
+														<h4 class="text-center mb-10"><small>Clasificación</small></h4>
+														<div class="form-group">
+															<label for="slcClasificacion" class="col-sm-3 control-label">Clasificación</label>
+															<div class="col-sm-9 slcClas">
+																	<select id="slcClasificacion" class="selectpicker" data-style="btn-success btn-outline">
+																	</select>
+																<div class="help-block with-errors"></div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="slcCategoria" class="col-sm-3 control-label">Categoría</label>
+															<div class="col-sm-9 slcClas">
+																	<select id="slcCategoria" class="selectpicker" data-style="btn-success btn-outline" disabled>
+																		<option value="Una Estrella" selected>Una Estrella</option>
+																		<option value="Dos Estrellas">Dos Estrellas</option>
+																		<option value="Tres Estrellas">Tres Estrellas</option>
+																		<option value="Cuatro Estrellas">Cuatro Estrellas</option>
+																		<option value="Cinco Estrellas">Cinco Estrellas</option>
+																		<option value="Seis Estrellas">Seis Estrellas</option>
+																	</select>
+																<div class="help-block with-errors"></div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-6 col-sm-12">
+														<h4 class="text-center mb-10"><small>Dirección</small></h4>
+														<div class="form-group">
+															<label for="txtCalle" class="col-sm-3 control-label">Calle</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtCalle" placeholder="Ingrese calle" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="txtNumero" class="col-sm-3 control-label">Número</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtNumero" placeholder="Ingrese número" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="txtCP" class="col-sm-3 control-label">Cod. Postal</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtCP" placeholder="Ingrese código postal" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="txtCiudad" class="col-sm-3 control-label">Ciudad</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtCiudad" placeholder="Ingrese ciudad" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="txtProvincia" class="col-sm-3 control-label">Provincia</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtProvincia" placeholder="Ingrese provincia" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="txtPais" class="col-sm-3 control-label">País</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtPais" placeholder="Ingrese país" required>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-12 col-sm-12">
+														<h4 class="text-center mb-10"><small>Datos Adicionales</small></h4>
+															<div class="col-md-6 col-sm-12">
+																<div class="form-group">
+																	<label for="slcTipoAlquiler" class="col-sm-3 control-label">Tipo de Alquiler</label>
+																	<div class="col-sm-9">
+																		<select id="slcTipoAlquiler" class="selectpicker" data-style="btn-success btn-outline">
+																			<option value="0">Alojamiento Completo</option>
+																			<option value="1">Por habitación</option>
+																		</select>
+																		<div class="help-block with-errors"></div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label for="txtHoraIngreso" class="col-sm-3 control-label">Hora Ingreso</label>
+																	<div class="col-sm-9">
+																		<input type="text" class="form-control" id="txtHoraIngreso" placeholder="12:00" data-mask="99:99" required>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label for="txtHoraEgreso" class="col-sm-3 control-label">Hora Egreso</label>
+																	<div class="col-sm-9">
+																		<input type="text" class="form-control" id="txtHoraEgreso" placeholder="23:00" data-mask="99:99" required>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-6 col-sm-12">
+																<div id="divUnico">
+															<div class="form-group">
+																<label for="txtCantHabitacion" class="col-sm-3 control-label">Cant. Habitación</label>
+																<div class="col-sm-9">
+																	<input type="number" class="form-control" id="txtCantHabitacion" placeholder="Ingrese cantidad de habitaciones" min="1" required>
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="txtTarifa" class="col-sm-3 control-label">Tarifa (Por Noche)</label>
+																<div class="col-sm-9">
+																	<div class="input-group">
+																		<div class="input-group-addon"><i class="fa fa-dollar"></i></div>
+																		<input type="number" class="form-control" id="txtTarifa" placeholder="Ingrese tarifa" min="0" required>
+																	</div>
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="txtCantPersona" class="col-sm-3 control-label">Cant Persona</label>
+																<div class="col-sm-9">
+																	<input type="number" class="form-control" id="txtCantPersona" placeholder="Ingrese cantidad de personas en total" min="1" required>
+																</div>
+															</div>
+														</div>
+															</div>
+													</div>
+												</div>
+											</form>
+											<div id="alertValidation" class="alert alert-danger hidden"></div>
+										</fieldset>
+										<h3><span class="number">2</span><span class="head-font">Características</span></h3>
+										<fieldset class="fieldsetHabitacion">
+										</fieldset>
+										<h3><span class="number">3</span><span class="head-font capitalize-font">Fotos</span></h3>
+										<fieldset>
+										</fieldset>
+										<h3><span class="number">4</span><span class="head-font capitalize-font">Finalizar</span></h3>
+										<fieldset>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> <!-- Fin Container-Fluid -->
+		</div>
+		<!-- FIN Main Content -->
+	</div>
+	<!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Comprueba Login -->
+	<script src="./js/comprobar_login.js"></script>
+
+	<!-- SweetAlert JS -->
+    <script src="../vendors/sweetalert.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap-Select JS (Le da color al Select) -->
+    <script src="../vendors/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<!-- Slimscroll JavaScript -->
+	<script src="../vendors/jquery.slimscroll.js"></script>
+	<!-- JASNY BOOTSTRAP JS(MASK) -->
+	<script src="../vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+	<!-- Form Wizard JavaScript -->
+	<script src="../vendors/jquery.steps/build/jquery.steps.min.js"></script>
+	<!-- Bootstrap Touchspin JavaScript -->
+	<script src="../vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+
+	<!-- INIT JS -->
+	<script src="../js/init.js"></script>
+	<!-- CrearAlojamiento JS -->
+	<script src="js/CrearAlojamientoBind.js"></script>
+	<script src="js/Alojamiento.js"></script>
+
+</body>
+</html>

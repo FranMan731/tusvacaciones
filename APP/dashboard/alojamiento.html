@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Tus Vacaciones | Dashboard</title>
+	<meta name="author" content="francomanzanares"/>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<!-- DataTable CSS -->
+    <link href="../vendors/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendors/datatables.net-responsive/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+	<!-- Bootstrap-Select CSS (Le da color al select) -->
+    <link href="../vendors/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+	<!-- Custom CSS -->
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!-- /Preloader -->
+    <div class="wrapper  theme-6-active pimary-color-green">
+		<!-- Top Menu Items -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<!-- LOGO - SEARCH-->
+			<div class="mobile-only-brand pull-left">
+				<div class="nav-header pull-left">
+					<div class="logo-wrap">
+						<a href="/">
+							<img class="" src="../img/logo.png" alt="logo"/>
+							<span class="brand-text">Tus Vacaciones</span>
+						</a>
+					</div>
+				</div>	
+				<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+				<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="fa fa-ellipsis-h"></i></a>
+			</div>
+			<!-- FIN LOGO - SEARCH -->
+			<!-- PERFIL -->
+			<div id="mobile_only_nav" class="mobile-only-nav pull-right">
+				<ul class="nav navbar-right top-nav pull-right">
+					<!-- PERFIL -->
+					<li class="dropdown auth-drp">
+						<a href="#" class="dropdown-toggle pr-0" style="top: 7px;" data-toggle="dropdown"><i style="color: white; font-size: 30px; font-weight: 600;" class="fa fa-power-off"></i></a>
+						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+							<li>
+								<a href="login.html" id="btnCerrarSesion"><i class="fa fa-power-off"></i><span>Cerrar Sesión</span></a>
+							</li>
+						</ul>
+					</li>
+					<!-- FIN PERFIL -->
+				</ul>
+			</div>
+			<!-- FIN NOTIFICACIONES - PERFIL -->
+		</nav>
+		<!-- /Top Menu Items -->
+		
+		<!-- Left Sidebar Menu -->
+		<div class="fixed-sidebar-left">
+			<ul class="nav navbar-nav side-nav nicescroll-bar">
+				<li class="navigation-header">
+					<span>Menú</span> 
+					<i class="fa fa-ellipsis-h"></i>
+				</li>
+				<li>
+					<a href="index.html"><div class="pull-left"><i class="fa fa-info mr-20"></i><span class="right-nav-text">Inicio</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="fa fa-building-o mr-20"></i><span class="right-nav-text">Alojamiento</span></div><div class="pull-right"><i class="fa fa-caret-down"></i></div><div class="clearfix"></div></a>
+					<ul id="dashboard_dr" class="collapse collapse-level-1">
+						<li>
+							<a class="active-page" href="javascript:void(0);">inicio</a>
+						</li>
+						<li>
+							<a href="habitacion.html">habitación</a>
+						</li>
+						<li>
+							<a href="reserva.html">reserva</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="clasificacion.html"><div class="pull-left"><i class="fa fa-bookmark mr-20"></i><span class="right-nav-text">Clasificación</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="caracteristica.html"><div class="pull-left"><i class="fa fa-cutlery mr-20"></i><span class="right-nav-text">Característica</span></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="usuario.html"><div class="pull-left"><i class="fa fa-users mr-20"></i><span class="right-nav-text">Usuario</span></div><div class="clearfix"></div></a>
+				</li>
+				<li><hr class="light-grey-hr mb-10"/></li>
+			</ul>
+		</div>
+		<!-- /Left Sidebar Menu -->
+
+        <!-- Main Content -->
+		<div class="page-wrapper">
+            <div class="container-fluid pt-25">
+				<!-- Title -->
+				<div id="titulos" class="row heading-bg">
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+					  <h4 class="txt-dark">Alojamientos</h4>
+					</div>
+				
+				<!-- Tipo de Alojamiento -->
+					<div class="col-md-3 col-sm-12 col-xs-12">
+						<select id="slcTipoAlojamiento" class="selectpicker" data-style="btn-success btn-outline">
+							<option value="-1" disabled selected>- Seleccione tipo -</option>
+							<option value="0">No eliminados</option>
+							<option value="1">Eliminados</option>
+							<option value="2">Todos</option>
+						</select>
+					</div>
+
+					<!-- Boton Agregar Alojamiento -->
+					<div class="col-md-2 col-sm-3 col-xs-12">
+						<a href="crear_alojamiento.html" class="btn btn-block btn-primary btn-anim" id="btnCrearAlojamiento"><i class="fa fa-pencil"></i><span class="btn-text">crear alojamiento</span></a>
+					</div>
+				</div>
+			
+				<!-- Alojamientos -->
+				<div id="divAlojamientos" class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Lista de Alojamientos</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div class="table-wrap">
+										<div class="">
+											<table id="tblAlojamientos" class="table table-hover display nowrap pb-30" >
+												<thead>
+													<tr>
+														<th>Nombre</th>
+														<th>Descripción</th>
+														<th>Clasificación</th>
+														<th>Categoría</th>
+														<th>Domicilio</th>
+														<th>Fecha Alta</th>
+														<th>Fecha Baja</th>
+														<th>Acciones</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th>Nombre</th>
+														<th>Descripción</th>
+														<th>Clasificación</th>
+														<th>Categoría</th>
+														<th>Domicilio</th>
+														<th>Fecha Alta</th>
+														<th>Fecha Baja</th>
+														<th>Acciones</th>
+													</tr>
+												</tfoot>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fin Alojamientos -->
+			<!-- Footer -->
+			<footer class="footer container-fluid pl-30 pr-30">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>2018 &copy; Droopy. Pampered by Hencework</p>
+					</div>
+				</div>
+			</footer>
+			<!-- /Footer -->
+		</div>
+        <!-- /Main Content -->
+		
+		<!-- Modal Direccion Alojamiento -->
+		<div id="mdlDireccionAlojamiento" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h5 class="modal-title" id="mdlDireccionAlojamientoTitle">Dirección</h5>
+						
+					</div>
+					<div class="modal-body" id="mdlDireccionAlojamientoBody">
+					</div>
+					<div class="modal-footer" id="mdlDireccionAlojamientoFoot">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button id="btnEditarDireccion" type="button" class="btn btn-success" data-toggle="modal" data-target="#mdlEditarDireccion" data-dismiss="modal">Editar</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!--FIN Modal Direccion Alojamiento -->
+		<!-- Modal Editar Direccion -->
+		<div id="mdlEditarDireccion" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h5 class="modal-title" id="mdlEditarDireccionTitle">Editar Dirección</h5>
+						
+					</div>
+					<div class="modal-body" id="mdlEditarDireccionBody">
+						<div class="row">
+								<div class="col-sm-12 col-xs-12">
+									<div class="form-wrap">
+										<form id="formEditarDireccion" class="form-horizontal" data-toggle="validator" role="form">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="txtCalle" class="col-sm-3 control-label">Calle</label>
+														<div class="col-sm-9">
+															<div class="input-group">
+																<input type="text" class="form-control" id="txtCalle" placeholder="Ingrese calle" required>
+															</div>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="txtNumero" class="col-sm-3 control-label">Número</label>
+														<div class="col-sm-9">
+															<div class="input-group">
+																<input type="text" class="form-control" id="txtNumero" placeholder="Ingrese número" required>
+															</div>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="txtCP" class="col-sm-3 control-label">Cod. Postal</label>
+														<div class="col-sm-9">
+															<div class="input-group">
+																<input type="text" class="form-control" id="txtCP" placeholder="Ingrese Cod. Postal" required>
+															</div>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="txtCiudad" class="col-sm-3 control-label">Ciudad</label>
+														<div class="col-sm-9">
+															<div class="input-group">
+																<input type="text" class="form-control" id="txtCiudad" placeholder="Ingrese ciudad" required>
+															</div>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="txtProvincia" class="col-sm-3 control-label">Provincia</label>
+														<div class="col-sm-9">
+															<div class="input-group">
+																<input type="text" class="form-control" id="txtProvincia" placeholder="Ingrese provincia" required>
+															</div>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="txtPais" class="col-sm-3 control-label">País</label>
+														<div class="col-sm-9">
+															<div class="input-group">
+																<input type="text" class="form-control" id="txtPais" placeholder="Ingrese país" required>
+															</div>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer row">
+												<div class="col-md-4">
+												<button type="button" class="btn btn-block btn-default" data-dismiss="modal">Cancelar</button>
+												</div>
+												<div class="col-md-8">
+												<button id="btnGuardarEditar" type="submit" class="btn btn-block btn-success btn-anim">Guardar</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- FIN MODAL EDITAR DIRECCION -->
+		<!-- Modal Editar Alojamiento -->
+		<div id="mdlEditarAlojamiento" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h5 class="modal-title" id="mdlEditarDireccionTitle">Editar Alojamiento</h5>
+						
+					</div>
+					<div class="modal-body" id="mdlEditarAlojamientoBody">
+						<div class="row">
+								<div class="col-sm-12 col-xs-12">
+									<div class="form-wrap">
+										<form id="formEditarAlojamiento" class="form-horizontal" data-toggle="validator" role="form">
+													<div class="form-group">
+														<label for="txtNombre" class="col-sm-3 control-label">Nombre</label>
+														<div class="col-sm-9">
+																<input type="text" class="form-control" id="txtNombre" placeholder="Ingrese nombre" required>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label for="txtDescripcion" class="col-sm-3 control-label">Descripción</label>
+														<div class="col-sm-9">
+																<textarea class="form-control" id="txtDescripcion" rows="3" required></textarea>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label for="slcClasificacion" class="col-sm-3 control-label">Clasificación</label>
+														<div class="col-sm-9">
+																<select id="slcClasificacion" class="selectpicker" data-style="btn-success btn-outline">
+																</select>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label for="slcCategoria" class="col-sm-3 control-label">Categoría</label>
+														<div class="col-sm-9">
+																<select id="slcCategoria" class="selectpicker" data-style="btn-success btn-outline" disabled>
+																	<option value="-1" disabled selected>- Seleccione categoría -</option>
+																	<option value="Una Estrella">Una Estrella</option>
+																	<option value="Dos Estrellas">Dos Estrellas</option>
+																	<option value="Tres Estrellas">Tres Estrellas</option>
+																	<option value="Cuatro Estrellas">Cuatro Estrellas</option>
+																	<option value="Cinco Estrellas">Cinco Estrellas</option>
+																	<option value="Seis Estrellas">Seis Estrellas</option>
+																</select>
+															<div class="help-block with-errors"></div>
+														</div>
+													</div>
+											</div>
+											<div class="modal-footer row">
+												<div class="col-md-4">
+												<button type="button" class="btn btn-block btn-default" data-dismiss="modal">Cancelar</button>
+												</div>
+												<div class="col-md-8">
+												<button id="btnGuardarEditarAlojamiento" type="submit" class="btn btn-block btn-success btn-anim">Editar</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- Fin Modal Editar Alojamiento -->
+		<!-- Modal Descripcion -->
+		<div id="mdlDescripcion" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h5 class="modal-title" id="mdlDescripcionTitle">Descripción</h5>
+						
+					</div>
+					<div class="modal-body" id="mdlDescripcionBody">
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- Fin modal Descripcion -->
+    </div>
+    <!-- /#wrapper -->
+	
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Comprueba Login -->
+	<script src="./js/comprobar_login.js"></script>
+	<!-- DataTable JS -->
+    <script src="../vendors/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <!-- SweetAlert JS -->
+    <script src="../vendors/sweetalert.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap-Select JS (Le da color al Select) -->
+    <script src="../vendors/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<!-- Slimscroll JavaScript -->
+	<script src="../vendors/jquery.slimscroll.js"></script>
+	<!-- Google Map JavaScript -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbAzYrcpFuVjAvnoA1Yw1KxvgfuDdBfsw"></script>
+	<!-- INIT JS -->
+	<script src="../js/init.js"></script>
+
+	<!-- Alojamiento JS -->
+	<script src="js/AlojamientoBind.js"></script>
+	<script src="js/Alojamiento.js"></script>
+</body>
+
+</html>
